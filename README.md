@@ -12,12 +12,6 @@ The solution utilizes the following Golang packages:
 - **encoding/json:** Used for marshaling and unmarshaling JSON data.
 
 
-### Endpoints
-
-- `https://jsonplaceholder.typicode.com/comments`
-- `https://jsonplaceholder.typicode.com/posts`
-- `https://jsonplaceholder.typicode.com/users`
-
 ### Expected Result Format
 
 The API is designed to return a combined result in the following JSON format:
