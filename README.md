@@ -13,7 +13,7 @@ The solution utilizes the following Golang packages:
 
 ## Logic Used
 
-The Data from the end points provided are Marshaed, Then using basic logic converted the data into the Desired format. 
+I used net/http for router, encoding/json: for marshaling JSON data, goroutines for consuming the api concurrently. The final JSON format was achieved by using for loops.
 
 ### Expected Result Format
 
