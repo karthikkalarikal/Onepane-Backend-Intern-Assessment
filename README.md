@@ -11,6 +11,9 @@ The solution utilizes the following Golang packages:
 - **net/http:** Handles HTTP requests and responses.
 - **encoding/json:** Used for marshaling and unmarshaling JSON data.
 
+## Logic Used
+
+The Data from the end points provided are Marshaed, Then using basic logic converted the data into the Desired format. 
 
 ### Expected Result Format
 
