@@ -101,16 +101,17 @@ func CombineResults(commentsData []models.Comments, postsData []models.Post, use
 
 	combinedResults := []models.Response{}
 
-	for _, comment := range commentsData {
-		post := utils.FindPostByID(postsData, comment.PostId)
-		user := utils.FindUserByID(usersData, post.UserID)
+	for _, post := range postsData {
+
+		commentsOfPost := utils.GetCommentsById(commentsData, post.ID)
+		userWhoPosted := utils.GetUserByID(usersData, post.UserID)
 
 		result := models.Response{
-			PostId:        comment.PostId,
+			PostId:        post.ID,
 			PostName:      post.Title,
-			CommentsCount: utils.GetCommentsCount(commentsData, comment.PostId),
-			UserName:      user.Name,
-			Body:          comment.Body,
+			CommentsCount: len(commentsOfPost),
+			UserName:      userWhoPosted.UserName,
+			Body:          post.Body,
 		}
 
 		combinedResults = append(combinedResults, result)

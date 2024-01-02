@@ -34,30 +34,22 @@ func MarchelUserData(responseData []byte) []models.Users {
 
 // for doing json data queries in go itself
 
-func FindPostByID(posts []models.Post, postId int) models.Post {
-	for _, post := range posts {
-		if post.ID == postId {
-			return post
+func GetCommentsById(comments []models.Comments, postId int) []models.Comments {
+	var commentsOfPost []models.Comments
+	for _, comment := range comments {
+		if comment.PostId == postId {
+			commentsOfPost = append(commentsOfPost, comment)
 		}
 	}
-	return models.Post{}
+	return commentsOfPost
 }
 
-func FindUserByID(users []models.Users, userId int) models.Users {
+func GetUserByID(users []models.Users, id int) models.Users {
+
 	for _, user := range users {
-		if user.Id == userId {
+		if user.Id == id {
 			return user
 		}
 	}
 	return models.Users{}
-}
-
-func GetCommentsCount(comments []models.Comments, postId int) int {
-	count := 0
-	for _, cmt := range comments {
-		if cmt.PostId == postId {
-			count++
-		}
-	}
-	return count
 }
